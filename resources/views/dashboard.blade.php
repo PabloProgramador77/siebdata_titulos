@@ -1,0 +1,27 @@
+@extends('home')
+@section('contenido')
+    <div class="container-fluid col-md-12 bg-white p-2 rounded">
+        
+        <p class="fs-4 fw-bold text-center bg-white p-2 my-2 border-bottom">Resumen Institucional</p>
+        <div class="container-fluid row">
+            
+            <div class="col-md-4">
+                <x-adminlte-small-box title="Alumnos" text="Alumnos registrados" theme="info" url="/alumnos" url-text="Ver todos los alumnos"></x-adminlte-small-box>
+            </div>
+            <div class="col-md-4">
+                <x-adminlte-small-box title="Responsables de Firma" text="Responsables registrados" theme="primary" url="/responsables" url-text="Ver todos los responsables"></x-adminlte-small-box>
+            </div>
+            <div class="col-md-4">
+                <x-adminlte-small-box title="Planes de Estudio" text="Planes registrados" theme="success" url="/carreras" url-text="Ver todos los planes de estudio"></x-adminlte-small-box>
+            </div>
+            <div class="col-md-4">
+                <x-adminlte-small-box title="Expediciones" text="Expediciones registradas" theme="warning" url="/expediciones" url-text="Ver todos los expediciones"></x-adminlte-small-box>
+            </div>
+            <div class="col-md-4">
+                <x-adminlte-small-box title="Archivos" text="Archivos registrados" theme="secondary" url="/archivos" url-text="Ver todos los archivos"></x-adminlte-small-box>
+            </div>
+
+        </div>
+        
+    </div>
+@stop

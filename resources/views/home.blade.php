@@ -6,4 +6,5 @@
 @section('plugins.Sweetalert2', true)
 @section('content_header')
     <h1>¡Bienvenido a SIEBDATA!</h1>
+    @yield('contenido')
 @stop
