@@ -259,7 +259,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => false,
     'password_email_url' => false,
-    'profile_url' => true,
+    'profile_url' => '/profile/username',
 
     /*
     |--------------------------------------------------------------------------
