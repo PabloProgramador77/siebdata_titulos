@@ -17,3 +17,4 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile/username', [App\Http\Controllers\UserController::class, 'show'])->name('perfil');
+Route::post('/ipes/actualizar', [App\Http\Controllers\UserController::class, 'update'])->name('actualizar-ipes');

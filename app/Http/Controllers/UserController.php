@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\User\UpdateUser;
 
 class UserController extends Controller
 {
@@ -65,9 +66,50 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUser $request)
     {
-        //
+        try {
+
+            if( $request->password != '' ){
+
+                $user = User::where('id', '=', $request->id)
+                ->update([
+
+                    'name' => $request->name,
+                    'clave' => $request->clave,
+                    'email' => $request->email,
+                    'password' => Hash::make( $request->password )
+
+                ]);
+
+            }else{
+
+                $user = User::where('id', '=', $request->id)
+                ->update([
+
+                    'name' => $request->name,
+                    'clave' => $request->clave,
+                    'email' => $request->email
+
+                ]);
+
+            }
+
+            $datos['exito'] = true;
+            
+        } catch (\Throwable $th) {
+            
+            $datos['exito'] = false;
+            $datos['mensaje'] = $th->getMessage();
+
+        } catch(\Illuminate\Database\QueryException $e){
+
+            $datos['exito'] = false;
+            $datos['mensaje'] = $e->getMessage();
+
+        }
+
+        return response()->json( $datos );
     }
 
     /**
