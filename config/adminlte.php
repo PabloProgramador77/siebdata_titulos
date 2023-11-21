@@ -290,21 +290,21 @@ return [
     */
 
     'menu' => [
-        'Menú Principal',
-        [
-            'text' => 'Alumnos',
-            'url' => '/alumnos',
-            'active' => ['usuarios'],
-        ],
+        'MENÚ PRINCIPAL',
         [
             'text' => 'Responsables de firma',
             'url' => '/responsables',
             'active' => ['responsables'],
         ],
-        [
+        /*[
             'text' => 'Planes de estudio',
             'url' => '/carreras',
             'active' => ['carreras'],
+        ],
+        [
+            'text' => 'Alumnos',
+            'url' => '/alumnos',
+            'active' => ['usuarios'],
         ],
         [
             'text' => 'Expediciones',
@@ -315,7 +315,7 @@ return [
             'text' => 'Archivos XML',
             'url' => '/archivos',
             'active' => ['archivos'],
-        ],
+        ],*/
         
     ],
 
