@@ -6,6 +6,7 @@ use App\Models\Responsable;
 use App\Models\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Requests\Responsable\Store;
+use App\Http\Requests\Responsable\Show;
 
 class ResponsableController extends Controller
 {
@@ -79,9 +80,34 @@ class ResponsableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Responsable $responsable)
+    public function show(Show $request)
     {
-        //
+        try {
+            
+            $responsable = Responsable::find($request->id);
+
+            if( $responsable->id ){
+
+                $datos['exito'] = true;
+                $datos['nombre'] = $responsable->nombre;
+                $datos['apellido1'] = $responsable->primerApellido;
+                $datos['apellido2'] = $responsable->segundoApellido;
+                $datos['curp'] = $responsable->curp;
+                $datos['titulo'] = $responsable->titulo;
+                $datos['idCargo'] = $responsable->idCargo;
+                $datos['cargo'] = $responsable->cargo->descripcion;
+                $datos['id'] = $responsable->id;
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            $datos['exito'] = false;
+            $datos['mensaje'] = $th->getMessage();
+
+        }
+
+        return response()->json($datos);
     }
 
     /**

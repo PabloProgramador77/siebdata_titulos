@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
 
                             if( resultado.isConfirmed ){
 
-                                $("#nombre, #primerApellido, #segundoApellido, $curp, $titulo").val('');
+                                $("#nombre, #primerApellido, #segundoApellido, #curp, #titulo").val('');
                                 $("#nombre").focus();
 
                             }

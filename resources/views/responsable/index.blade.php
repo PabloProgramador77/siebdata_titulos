@@ -39,7 +39,7 @@
                             <td>{{ $responsable->curp }}</td>
                             <td>{{ $responsable->cargo->descripcion }}</td>
                             <td>
-                                <x-adminlte-button id="editar" label="Editar" theme="info"></x-adminlte-button>
+                                <x-adminlte-button id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
                                 <x-adminlte-button id="eliminar" label="Borrar" theme="danger"></x-adminlte-button>
                                 <x-adminlte-button id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
                             </td>
@@ -53,9 +53,11 @@
     </div>
 
     @include('responsable.nuevo')
+    @include('responsable.editar')
 
     <script src="{{ asset('js/jquery-3.7.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/sweetAlert.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/agregar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/responsable/buscar.js') }}" type="text/javascript"></script>
 
 @stop
