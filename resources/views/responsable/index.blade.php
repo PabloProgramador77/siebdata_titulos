@@ -59,5 +59,6 @@
     <script src="{{ asset('js/sweetAlert.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/agregar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/buscar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/responsable/actualizar.js') }}" type="text/javascript"></script>
 
 @stop

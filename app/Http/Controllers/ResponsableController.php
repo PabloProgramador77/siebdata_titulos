@@ -7,6 +7,7 @@ use App\Models\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Requests\Responsable\Store;
 use App\Http\Requests\Responsable\Show;
+use App\Http\Requests\Responsable\Update;
 
 class ResponsableController extends Controller
 {
@@ -121,9 +122,32 @@ class ResponsableController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Responsable $responsable)
+    public function update(Update $request)
     {
-        //
+        try {
+            
+            $responsable = Responsable::where('id', '=', $request->id)
+                ->update([
+
+                    'nombre' => $request->nombre,
+                    'primerApellido' => $request->primerApellido,
+                    'segundoApellido' => $request->segundoApellido,
+                    'curp' => $request->curp,
+                    'titulo' => $request->titulo,
+                    'idCargo' => $request->cargo
+
+                ]);
+
+            $datos['exito'] = true;
+
+        } catch (\Throwable $th) {
+            
+            $datos['exito'] = false;
+            $datos['mensaje'] = $th->getMessage();
+
+        }
+
+        return response()->json($datos);
     }
 
     /**

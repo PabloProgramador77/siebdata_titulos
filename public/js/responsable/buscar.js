@@ -55,6 +55,8 @@ jQuery(document).ready(function(){
 
                 });
 
+                $("#actualizar").attr('disabled', true);
+
             }
 
         });

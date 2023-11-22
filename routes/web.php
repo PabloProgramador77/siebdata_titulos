@@ -22,3 +22,4 @@ Route::post('/ipes/actualizar', [App\Http\Controllers\UserController::class, 'up
 Route::get('/responsables', [App\Http\Controllers\ResponsableController::class, 'index'])->name('responsables');
 Route::post('/responsable/agregar', [App\Http\Controllers\ResponsableController::class, 'store'])->name('nuevo-responsable');
 Route::post('/responsable/buscar', [App\Http\Controllers\ResponsableController::class, 'show'])->name('buscar-responsable');
+Route::post('/responsable/actualizar', [App\Http\Controllers\ResponsableController::class, 'update'])->name('actualizar-responsable');
