@@ -18,3 +18,6 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile/username', [App\Http\Controllers\UserController::class, 'show'])->name('perfil');
 Route::post('/ipes/actualizar', [App\Http\Controllers\UserController::class, 'update'])->name('actualizar-ipes');
+
+Route::get('/responsables', [App\Http\Controllers\ResponsableController::class, 'index'])->name('responsables');
+Route::post('/responsable/agregar', [App\Http\Controllers\ResponsableController::class, 'store'])->name('nuevo-responsable');

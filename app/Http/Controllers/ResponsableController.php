@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Responsable;
+use App\Models\Cargo;
 use Illuminate\Http\Request;
+use App\Http\Requests\Responsable\Store;
 
 class ResponsableController extends Controller
 {
@@ -12,7 +14,24 @@ class ResponsableController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            
+            if( auth()->user()->id ){
+
+                $responsables = Responsable::orderBy('updated_at', 'desc')
+                    ->get();
+
+                $cargos = Cargo::orderBy('id', 'asc')->get();
+
+                return view('responsable.index', compact('responsables', 'cargos'));
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            echo $th->getMessage();
+
+        }
     }
 
     /**
@@ -26,9 +45,35 @@ class ResponsableController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Store $request)
     {
-        //
+        try {
+            
+            $responsable = Responsable::create([
+
+                'nombre' => $request->nombre,
+                'primerApellido' => $request->primerApellido,
+                'segundoApellido' => $request->segundoApellido,
+                'curp' => $request->curp,
+                'titulo' => $request->titulo,
+                'idCargo' =>$request->cargo
+
+            ]);
+
+            if( $responsable->id ){
+
+                $datos['exito'] = true;
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            $datos['exito'] = false;
+            $datos['mensaje'] = $th->getMessage();
+
+        }
+
+        return response()->json($datos);
     }
 
     /**

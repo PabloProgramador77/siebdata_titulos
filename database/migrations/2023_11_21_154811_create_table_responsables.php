@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('responsables', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('primerApellido');
+            $table->string('segundoApellido');
+            $table->string('curp')->unique();
+            $table->string('titulo')->nullable();
+            $table->string('idCargo');
             $table->timestamps();
+
+            $table->foreign('idCargo')->references('id')->on('cargos')->onDelete('cascade');
         });
     }
 
