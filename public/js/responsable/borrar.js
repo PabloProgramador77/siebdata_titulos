@@ -1,7 +1,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function(){
 
-    $("#eliminar").on('click', function(e){
+    $(".eliminar").on('click', function(e){
 
         e.preventDefault();
 

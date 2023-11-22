@@ -40,9 +40,9 @@
                                 <td>{{ $responsable->curp }}</td>
                                 <td>{{ $responsable->cargo->descripcion }}</td>
                                 <td>
-                                    <x-adminlte-button id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
-                                    <x-adminlte-button id="eliminar" label="Borrar" theme="danger" data-id="{{ $responsable->id }}"></x-adminlte-button>
-                                    <x-adminlte-button id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
+                                    <x-adminlte-button class="editar" id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
+                                    <x-adminlte-button class="eliminar" id="eliminar" label="Borrar" theme="danger" data-id="{{ $responsable->id }}"></x-adminlte-button>
+                                    <x-adminlte-button class="llaves" id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
                                 </td>
                             </tr>
                         @endforeach

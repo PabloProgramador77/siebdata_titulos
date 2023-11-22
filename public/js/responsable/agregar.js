@@ -56,8 +56,9 @@ jQuery(document).ready(function(){
 
                             if( resultado.isConfirmed ){
 
-                                $("#nombre, #primerApellido, #segundoApellido, #curp, #titulo").val('');
-                                $("#nombre").focus();
+                                $("#modalNuevo").hide();
+
+                                window.location.href = '/responsables';
 
                             }
 
