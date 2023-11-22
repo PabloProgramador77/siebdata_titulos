@@ -33,18 +33,25 @@
             
             <div class="container-fluid col-md-12 my-3">
                 <x-adminlte-datatable id="responsables" :heads="$heads" theme="light" striped hoverable bordered compressed beautify>
-                    @foreach($responsables as $responsable)
+                    @if( count( $responsables ) > 0 )
+                        @foreach($responsables as $responsable)
+                            <tr>
+                                <td>{{ $responsable->nombre." ".$responsable->primerApellido." ".$responsable->segundoApellido }}</td>
+                                <td>{{ $responsable->curp }}</td>
+                                <td>{{ $responsable->cargo->descripcion }}</td>
+                                <td>
+                                    <x-adminlte-button id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
+                                    <x-adminlte-button id="eliminar" label="Borrar" theme="danger" data-id="{{ $responsable->id }}"></x-adminlte-button>
+                                    <x-adminlte-button id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
-                            <td>{{ $responsable->nombre." ".$responsable->primerApellido." ".$responsable->segundoApellido }}</td>
-                            <td>{{ $responsable->curp }}</td>
-                            <td>{{ $responsable->cargo->descripcion }}</td>
-                            <td>
-                                <x-adminlte-button id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
-                                <x-adminlte-button id="eliminar" label="Borrar" theme="danger"></x-adminlte-button>
-                                <x-adminlte-button id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
-                            </td>
+                            <td colspan="4" class="text-info">Sin responsables de firma registrados</td>
                         </tr>
-                    @endforeach
+                    @endif
+                    
                 </x-adminlte-datatable>
             </div>
 
@@ -60,5 +67,6 @@
     <script src="{{ asset('js/responsable/agregar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/buscar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/actualizar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/responsable/borrar.js') }}" type="text/javascript"></script>
 
 @stop

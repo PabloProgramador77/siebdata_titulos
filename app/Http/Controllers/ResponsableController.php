@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Responsable\Store;
 use App\Http\Requests\Responsable\Show;
 use App\Http\Requests\Responsable\Update;
+use App\Http\Requests\Responsable\Delete;
 
 class ResponsableController extends Controller
 {
@@ -153,8 +154,27 @@ class ResponsableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Responsable $responsable)
+    public function destroy(Delete $request)
     {
-        //
+        try {
+            
+            $responsable = Responsable::find($request->id);
+
+            if( $responsable->id ){
+
+                $responsable->delete();
+
+                $datos['exito'] = true;
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            $datos['exito'] = false;
+            $datos['mensaje'] = $th->getMessage();
+
+        }
+
+        return response()->json($datos);
     }
 }
