@@ -17,6 +17,8 @@ class VerifyCsrfToken extends Middleware
         '/responsable/buscar',
         '/responsable/actualizar',
         '/responsable/borrar',
+        '/certificado/validar',
+        '/certificado/archivar',
         
     ];
 }

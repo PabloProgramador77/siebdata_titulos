@@ -22,4 +22,10 @@ class Responsable extends Model
         return $this->hasOne(Cargo::class, 'id', 'idCargo');
         
     }
+
+    public function certificado(){
+
+        return $this->belongsTo(Certificado::class, 'id', 'idResponsable');
+
+    }
 }

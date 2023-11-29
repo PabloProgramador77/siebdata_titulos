@@ -26,23 +26,31 @@
             @php
                 $heads = [
 
-                    'Nombre', 'CURP', 'Cargo', 'Acciones'
+                    'Nombre', 'Cargo', 'Certificado', 'Firma', 'Acciones'
 
                 ];
             @endphp
             
             <div class="container-fluid col-md-12 my-3">
                 <x-adminlte-datatable id="responsables" :heads="$heads" theme="light" striped hoverable bordered compressed beautify>
+                    
                     @if( count( $responsables ) > 0 )
                         @foreach($responsables as $responsable)
                             <tr>
                                 <td>{{ $responsable->nombre." ".$responsable->primerApellido." ".$responsable->segundoApellido }}</td>
-                                <td>{{ $responsable->curp }}</td>
                                 <td>{{ $responsable->cargo->descripcion }}</td>
+
+                                @if( $responsable->certificado != NULL && $responsable->certificado->nombre != NULL )
+                                    <td>{{ $responsable->certificado->nombre }}</td>
+                                @else
+                                    <td>Sin Certificado Agregado</td>
+                                @endif
+                                
                                 <td>
                                     <x-adminlte-button class="editar" id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $responsable->id }}"></x-adminlte-button>
                                     <x-adminlte-button class="eliminar" id="eliminar" label="Borrar" theme="danger" data-id="{{ $responsable->id }}"></x-adminlte-button>
-                                    <x-adminlte-button class="llaves" id="llaves" label="Llaves" theme="warning"></x-adminlte-button>
+                                    <x-adminlte-button class="llaves" id="llaves" label="Certificado" theme="secondary" data-toggle="modal" data-target="#modalArchivos" data-id="{{ $responsable->id }}"></x-adminlte-button>
+                                    <x-adminlte-button class="firma" id="firma" label="Firma" theme="warning" data-toggle="modal" data-target="#modalFirmas" data-id="{{ $responsable->id }}"></x-adminlte-button>
                                 </td>
                             </tr>
                         @endforeach
@@ -61,6 +69,8 @@
 
     @include('responsable.nuevo')
     @include('responsable.editar')
+    @include('responsable.archivos')
+    @include('responsable.firmas')
 
     <script src="{{ asset('js/jquery-3.7.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/sweetAlert.js') }}" type="text/javascript"></script>
@@ -68,5 +78,7 @@
     <script src="{{ asset('js/responsable/buscar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/actualizar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/responsable/borrar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/certificado/validar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/certificado/archivar.js') }}" type="text/javascript"></script>
 
 @stop

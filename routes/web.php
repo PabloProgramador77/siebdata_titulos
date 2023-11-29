@@ -24,3 +24,6 @@ Route::post('/responsable/agregar', [App\Http\Controllers\ResponsableController:
 Route::post('/responsable/buscar', [App\Http\Controllers\ResponsableController::class, 'show'])->name('buscar-responsable');
 Route::post('/responsable/actualizar', [App\Http\Controllers\ResponsableController::class, 'update'])->name('actualizar-responsable');
 Route::post('/responsable/borrar', [App\Http\Controllers\ResponsableController::class, 'destroy'])->name('borrar-responsable');
+
+Route::post('/certificado/validar', [App\Http\Controllers\CertificadoController::class, 'create'])->name('validar-certificado');
+Route::post('/certificado/archivar', [App\Http\Controllers\CertificadoController::class, 'store'])->name('archivar-certificado');
