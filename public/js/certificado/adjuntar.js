@@ -2,7 +2,7 @@ jQuery.noConflict();
 jQuery(document).ready(function(){
 
     /**Pasando ID de Responsable */
-    $('.llaves').on('click', function(e){
+    $('.firma').on('click', function(e){
 
         e.preventDefault();
 
@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
     });
 
     /*Archivando Certificado */
-    $("#archivar").on('click', function(e){
+    $("#adjuntar").on('click', function(e){
 
         e.preventDefault();
 
@@ -33,15 +33,16 @@ jQuery(document).ready(function(){
 
                 }, 100);
 
-                let archivo = $("#cer").prop('files')[0];
+                let archivo = $("#key").prop('files')[0];
                 let dataForm = new FormData();
                 dataForm.append('archivo', archivo);
+                dataForm.append('password', $("#password").val());
                 dataForm.append('id', $("#id").val());
 
                 $.ajax({
 
                     type: 'POST',
-                    url: '/certificado/archivar',
+                    url: '/firma/archivar',
                     data: dataForm,
                     processData: false,
                     contentType: false,
@@ -55,7 +56,7 @@ jQuery(document).ready(function(){
                         Swal.fire({
 
                             icon: 'success',
-                            title: 'Certificado Descifrado, Archivado y Registrado.',
+                            title: 'Firma Descifrada, Archivada y Registrada.',
                             allowOutsideClick: false,
                             showConfirmButton: true
 
@@ -63,7 +64,7 @@ jQuery(document).ready(function(){
 
                             if( resultado.isConfirmed ){
 
-                                $("#modalArchivos").hide();
+                                $("#modalFirmas").hide();
 
                                 window.location.href = '/responsables';
 

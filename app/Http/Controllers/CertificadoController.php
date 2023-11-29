@@ -32,7 +32,7 @@ class CertificadoController extends Controller
             }else{
 
                 $datos['exito'] = false;
-                $datos['mensaje'] = 'TipThe archivo field is required."o de archivo no permitido.';
+                $datos['mensaje'] = 'Archivo no valido/permitido.';
 
             }
 

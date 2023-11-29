@@ -26,7 +26,7 @@
             @php
                 $heads = [
 
-                    'Nombre', 'Cargo', 'Certificado', 'Firma', 'Acciones'
+                    'Nombre de Responsable', 'Cargo de Responsable', 'Certificado', 'Firma', 'Acciones'
 
                 ];
             @endphp
@@ -41,9 +41,15 @@
                                 <td>{{ $responsable->cargo->descripcion }}</td>
 
                                 @if( $responsable->certificado != NULL && $responsable->certificado->nombre != NULL )
-                                    <td>{{ $responsable->certificado->nombre }}</td>
+                                    <td>{{ str_repeat('*', strlen($responsable->certificado->nombre)/3) }}{{substr($responsable->certificado->nombre, -7)}}</td>
                                 @else
                                     <td>Sin Certificado Agregado</td>
+                                @endif
+
+                                @if( $responsable->firma != NULL && $responsable->firma->nombre != NULL )
+                                    <td>{{ str_repeat('*', strlen($responsable->firma->nombre)/3) }}{{ substr($responsable->firma->nombre, -7) }}</td>
+                                @else
+                                    <td>Sin Firma Agregada</td>
                                 @endif
                                 
                                 <td>
@@ -80,5 +86,7 @@
     <script src="{{ asset('js/responsable/borrar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/certificado/validar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/certificado/archivar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/certificado/password.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/certificado/adjuntar.js') }}" type="text/javascript"></script>
 
 @stop

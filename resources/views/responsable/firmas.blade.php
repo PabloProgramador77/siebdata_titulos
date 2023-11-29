@@ -10,6 +10,22 @@
                         </div>
                     </x-slot>
                 </x-adminlte-input-file>
+                
+                <x-adminlte-input type="password" name="password" id="password" placeholder="Contraseña de archivo" label-class="text-info">
+                    <x-slot name="prependSlot">
+                        <div class="input-group-text bg-info">
+                            <img src="{{ asset('icons/candado.png') }}" alt="Icono IPES" width="20px" height="auto">
+                        </div>
+                    </x-slot>
+                </x-adminlte-input>
+
+                <x-adminlte-input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirma la contraseña del archivo" label-class="text-info">
+                    <x-slot name="prependSlot">
+                        <div class="input-group-text bg-info">
+                            <img src="{{ asset('icons/contrasena.png') }}" alt="Icono IPES" width="20px" height="auto">
+                        </div>
+                    </x-slot>
+                </x-adminlte-input>
             </div>
             <input type="hidden" name="id" token="id" >
         </form>

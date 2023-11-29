@@ -28,4 +28,10 @@ class Responsable extends Model
         return $this->belongsTo(Certificado::class, 'id', 'idResponsable');
 
     }
+
+    public function firma(){
+
+        return $this->belongsTo(Firma::class, 'id', 'idResponsable');
+        
+    }
 }
