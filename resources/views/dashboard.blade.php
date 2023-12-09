@@ -6,19 +6,19 @@
         <div class="container-fluid row">
             
             <div class="col-md-4">
-                <x-adminlte-small-box title="Alumnos" text="Alumnos registrados" theme="light" url="/alumnos" url-text="Ver todos los alumnos"></x-adminlte-small-box>
+                <x-adminlte-small-box title="Alumnos" text="Alumnos registrados" theme="primary" url="/alumnos" url-text="Ver todos los alumnos"></x-adminlte-small-box>
             </div>
             <div class="col-md-4">
-                <x-adminlte-small-box title="Responsables de Firma" text="Responsables registrados" theme="black" url="/responsables" url-text="Ver todos los responsables"></x-adminlte-small-box>
+                <x-adminlte-small-box title="Responsables de Firma" text="Responsables registrados" theme="secondary" url="/responsables" url-text="Ver todos los responsables"></x-adminlte-small-box>
             </div>
             <div class="col-md-4">
-                <x-adminlte-small-box title="Planes de Estudio" text="Planes registrados" theme="success" url="/carreras" url-text="Ver todos los planes de estudio"></x-adminlte-small-box>
+                <x-adminlte-small-box title="Planes de Estudio" text="Planes registrados" theme="info" url="/carreras" url-text="Ver todos los planes de estudio"></x-adminlte-small-box>
             </div>
             <div class="col-md-4">
-                <x-adminlte-small-box title="Expediciones" text="Expediciones registradas" theme="warning" url="/expediciones" url-text="Ver todos los expediciones"></x-adminlte-small-box>
+                <x-adminlte-small-box title="Expediciones" text="Expediciones registradas" theme="success" url="/expediciones" url-text="Ver todos los expediciones"></x-adminlte-small-box>
             </div>
             <div class="col-md-4">
-                <x-adminlte-small-box title="Archivos" text="Archivos registrados" theme="secondary" url="/archivos" url-text="Ver todos los archivos"></x-adminlte-small-box>
+                <x-adminlte-small-box title="Archivos" text="Archivos registrados" theme="warning" url="/archivos" url-text="Ver todos los archivos"></x-adminlte-small-box>
             </div>
 
         </div>

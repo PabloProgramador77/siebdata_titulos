@@ -4,6 +4,7 @@
 @section('plugins.Select2', true)
 @section('plugins.JQuery', true)
 @section('plugins.Sweetalert2', true)
+@include('right-sidebar')
 @section('content_header')
     @yield('contenido')
 @stop

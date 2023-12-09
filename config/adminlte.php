@@ -211,7 +211,7 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
@@ -232,7 +232,7 @@ return [
     |
     */
 
-    'right_sidebar' => false,
+    'right_sidebar' => true,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'light',
     'right_sidebar_slide' => true,
@@ -296,12 +296,12 @@ return [
             'url' => '/responsables',
             'active' => ['responsables'],
         ],
-        /*[
+        [
             'text' => 'Planes de estudio',
             'url' => '/carreras',
             'active' => ['carreras'],
         ],
-        [
+        /*[
             'text' => 'Alumnos',
             'url' => '/alumnos',
             'active' => ['usuarios'],
