@@ -354,6 +354,16 @@ return [
     */
 
     'plugins' => [
+        'JQuery' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'js/jquery-3.7.js',
+                ],
+            ]
+        ],
         'Datatables' => [
             'active' => true,
             'files' => [
@@ -424,16 +434,6 @@ return [
                 ],
             ],
         ],
-        'JQuery' => [
-            'active' => true,
-            'files' => [
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'js/jquery-3.7.js',
-                ],
-            ]
-        ]
     ],
 
     /*

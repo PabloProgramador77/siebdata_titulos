@@ -30,3 +30,9 @@ Route::post('/certificado/archivar', [App\Http\Controllers\CertificadoController
 
 Route::post('/firma/validar', [App\Http\Controllers\FirmaController::class, 'create'])->name('validar-firma');
 Route::post('/firma/archivar', [App\Http\Controllers\FirmaController::class, 'store'])->name('archivar-firma');
+
+Route::get('/cargos', [App\Http\Controllers\CargoController::class, 'index'])->name('cargos');
+Route::post('/cargo/agregar', [App\Http\Controllers\CargoController::class, 'store'])->name('nuevo-cargo');
+Route::post('/cargo/buscar', [App\Http\Controllers\CargoController::class, 'show'])->name('buscar-cargo');
+Route::post('/cargo/actualizar', [App\Http\Controllers\CargoController::class, 'update'])->name('actualizar-cargo');
+Route::post('/cargo/borrar', [App\Http\Controllers\CargoController::class, 'destroy'])->name('borrar-cargo');

@@ -4,22 +4,10 @@
 
         <div class="container-fluid row col-md-12 border-bottom p-2">
 
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <h4 class="my-auto">Responsables de Firma</h4>
             </div>
-            <div class="col-md-4">
-                <x-adminlte-input name="buscar" id="buscar" placeholder="Buscar por nombre">
-                    <x-slot name="appendSlot">
-                            <x-adminlte-button theme="outline-primary" label="Buscar"></x-adminlte-button>
-                    </x-slot>
-                    <x-slot name="prependSlot">
-                        <div class="input-group-text text-info">
-                            <img src="{{ asset('icons/buscar.png') }}" width="20px" height="auto" alt="Icono Buscar">
-                        </div>
-                    </x-slot>
-                </x-adminlte-input>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <x-adminlte-button label="Agregar Responsable" theme="primary" data-toggle="modal" data-target="#modalNuevo"></x-adminlte-button>
             </div>
 
