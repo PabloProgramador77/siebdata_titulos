@@ -19,7 +19,7 @@
                 <a class="nav-link" id="v-pills-home-tab" href="#" role="tab" aria-controls="v-pills-home" aria-selected="false">
                     <img src="{{ asset('icons/legal.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Fundamentos de S.S.
                 </a>
-                <a class="nav-link" id="v-pills-profile-tab" href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/titulaciones') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <img src="{{ asset('icons/titulo.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Titulaciones
                 </a>
             </div>

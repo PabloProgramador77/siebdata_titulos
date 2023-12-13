@@ -36,3 +36,9 @@ Route::post('/cargo/agregar', [App\Http\Controllers\CargoController::class, 'sto
 Route::post('/cargo/buscar', [App\Http\Controllers\CargoController::class, 'show'])->name('buscar-cargo');
 Route::post('/cargo/actualizar', [App\Http\Controllers\CargoController::class, 'update'])->name('actualizar-cargo');
 Route::post('/cargo/borrar', [App\Http\Controllers\CargoController::class, 'destroy'])->name('borrar-cargo');
+
+Route::get('/titulaciones', [App\Http\Controllers\TitulacionController::class, 'index'])->name('titulaciones');
+Route::post('/titulacion/agregar', [App\Http\Controllers\TitulacionController::class, 'store'])->name('nuevo-titulacion');
+Route::post('/titulacion/buscar', [App\Http\Controllers\TitulacionController::class, 'show'])->name('buscar-titulacion');
+Route::post('/titulacion/actualizar', [App\Http\Controllers\TitulacionController::class, 'update'])->name('actualizar-titulacion');
+Route::post('/titulacion/borrar', [App\Http\Controllers\TitulacionController::class, 'destroy'])->name('borrar-titulacion');
