@@ -7,7 +7,7 @@
                 <a class="nav-link" href="{{ url('/cargos') }}" role="tab" aria-controls="v-pills-home" aria-selected="false">
                     <img src="{{ asset('icons/etiqueta.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Cargos
                 </a>
-                <a class="nav-link" id="v-pills-profile-tab" href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/autoridades') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <img src="{{ asset('icons/escuela.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Autoridades de RVOE
                 </a>
                 <a class="nav-link" id="v-pills-messages-tab" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">
