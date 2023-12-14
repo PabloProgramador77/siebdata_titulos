@@ -48,3 +48,9 @@ Route::post('/autoridad/agregar', [App\Http\Controllers\AutoridadController::cla
 Route::post('/autoridad/buscar', [App\Http\Controllers\AutoridadController::class, 'show'])->name('buscar-autoridad');
 Route::post('/autoridad/actualizar', [App\Http\Controllers\AutoridadController::class, 'update'])->name('actualizar-autoridad');
 Route::post('/autoridad/borrar', [App\Http\Controllers\AutoridadController::class, 'destroy'])->name('borrar-autoridad');
+
+Route::get('/entidades', [App\Http\Controllers\EntidadController::class, 'index'])->name('entidades');
+Route::post('/entidad/agregar', [App\Http\Controllers\EntidadController::class, 'store'])->name('nuevo-entidad');
+Route::post('/entidad/buscar', [App\Http\Controllers\EntidadController::class, 'show'])->name('buscar-entidad');
+Route::post('/entidad/actualizar', [App\Http\Controllers\EntidadController::class, 'update'])->name('actualizar-entidad');
+Route::post('/entidad/borrar', [App\Http\Controllers\EntidadController::class, 'destroy'])->name('borrar-entidad');

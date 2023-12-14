@@ -10,7 +10,7 @@
                 <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/autoridades') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <img src="{{ asset('icons/escuela.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Autoridades de RVOE
                 </a>
-                <a class="nav-link" id="v-pills-messages-tab" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                <a class="nav-link" id="v-pills-messages-tab" href="{{ url('/entidades') }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <img src="{{ asset('icons/mapa.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Entidades Federativas
                 </a>
                 <a class="nav-link" id="v-pills-settings-tab" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false">

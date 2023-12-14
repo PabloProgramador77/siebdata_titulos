@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Autoridad;
+use App\Models\Entidad;
 use Illuminate\Http\Request;
-use App\Http\Requests\Autoridad\Create;
-use App\Http\Requests\Autoridad\Read;
-use App\Http\Requests\Autoridad\Update;
-use App\Http\Requests\Autoridad\Delete;
+use App\Http\Requests\Entidad\Create;
+use App\Http\Requests\Entidad\Read;
+use App\Http\Requests\Entidad\Update;
+use App\Http\Requests\Entidad\Delete;
 
-class AutoridadController extends Controller
+class EntidadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +18,14 @@ class AutoridadController extends Controller
     {
         if( auth()->user()->id ){
 
-            $autoridades = Autoridad::all();
+            $entidades = Entidad::all();
 
-            return view('autoridad.index', compact('autoridades'));
+            return view('entidad.index', compact('entidades'));
 
         }else{
 
             return redirect('/');
+            
         }
     }
 
@@ -43,14 +44,14 @@ class AutoridadController extends Controller
     {
         try {
             
-            $autoridad = Autoridad::create([
+            $entidad = Entidad::create([
 
-                'idAutoridad' => $request->idAutoridad,
+                'idEntidad' => $request->idEntidad,
                 'nombre' => $request->nombre
 
             ]);
 
-            if( $autoridad->id ){
+            if( $entidad->id ){
 
                 $datos['exito'] = true;
 
@@ -73,14 +74,14 @@ class AutoridadController extends Controller
     {
         try {
             
-            $autoridad = Autoridad::find($request->id);
+            $entidad = Entidad::find($request->id);
 
-            if( $autoridad->id ){
+            if( $entidad->id ){
 
                 $datos['exito'] = true;
-                $datos['idAutoridad'] = $autoridad->idAutoridad;
-                $datos['nombre'] = $autoridad->nombre;
-                $datos['id'] = $autoridad->id;
+                $datos['idEntidad'] = $entidad->idEntidad;
+                $datos['nombre'] = $entidad->nombre;
+                $datos['id'] = $entidad->id;
 
             }
 
@@ -97,7 +98,7 @@ class AutoridadController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Autoridad $autoridad)
+    public function edit(Entidad $entidad)
     {
         //
     }
@@ -109,10 +110,10 @@ class AutoridadController extends Controller
     {
         try {
             
-            $autoridad = Autoridad::where('id', '=', $request->id)
+            $entidad = Entidad::where('id', '=', $request->id)
                 ->update([
 
-                    'idAutoridad' => $request->idAutoridad,
+                    'idEntidad' => $request->idEntidad,
                     'nombre' => $request->nombre
 
                 ]);
@@ -136,11 +137,11 @@ class AutoridadController extends Controller
     {
         try {
             
-            $autoridad = Autoridad::find($request->id);
+            $entidad = Entidad::find($request->id);
 
-            if( $autoridad->id ){
+            if( $entidad->id ){
 
-                $autoridad->delete();
+                $entidad->delete();
 
                 $datos['exito'] = true;
 
