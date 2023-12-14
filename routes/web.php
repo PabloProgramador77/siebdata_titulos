@@ -54,3 +54,9 @@ Route::post('/entidad/agregar', [App\Http\Controllers\EntidadController::class, 
 Route::post('/entidad/buscar', [App\Http\Controllers\EntidadController::class, 'show'])->name('buscar-entidad');
 Route::post('/entidad/actualizar', [App\Http\Controllers\EntidadController::class, 'update'])->name('actualizar-entidad');
 Route::post('/entidad/borrar', [App\Http\Controllers\EntidadController::class, 'destroy'])->name('borrar-entidad');
+
+Route::get('/estudios', [App\Http\Controllers\EstudioController::class, 'index'])->name('estudios');
+Route::post('/estudio/agregar', [App\Http\Controllers\EstudioController::class, 'store'])->name('nuevo-estudio');
+Route::post('/estudio/buscar', [App\Http\Controllers\EstudioController::class, 'show'])->name('buscar-estudio');
+Route::post('/estudio/actualizar', [App\Http\Controllers\EstudioController::class, 'update'])->name('actualizar-estudio');
+Route::post('/estudio/borrar', [App\Http\Controllers\EstudioController::class, 'destroy'])->name('borrar-estudio');

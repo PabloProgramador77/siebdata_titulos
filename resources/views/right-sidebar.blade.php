@@ -13,10 +13,10 @@
                 <a class="nav-link" id="v-pills-messages-tab" href="{{ url('/entidades') }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <img src="{{ asset('icons/mapa.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Entidades Federativas
                 </a>
-                <a class="nav-link" id="v-pills-settings-tab" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                <a class="nav-link" id="v-pills-settings-tab" href="{{ url('/estudios') }}" role="tab" aria-controls="v-pills-settings" aria-selected="false">
                     <img src="{{ asset('icons/estudiantes.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Niveles de Estudios
                 </a>
-                <a class="nav-link" id="v-pills-home-tab" href="#" role="tab" aria-controls="v-pills-home" aria-selected="false">
+                <a class="nav-link" id="v-pills-home-tab" href="{{ url('/fundamentos') }}" role="tab" aria-controls="v-pills-home" aria-selected="false">
                     <img src="{{ asset('icons/legal.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Fundamentos de S.S.
                 </a>
                 <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/titulaciones') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
