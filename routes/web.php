@@ -60,3 +60,9 @@ Route::post('/estudio/agregar', [App\Http\Controllers\EstudioController::class, 
 Route::post('/estudio/buscar', [App\Http\Controllers\EstudioController::class, 'show'])->name('buscar-estudio');
 Route::post('/estudio/actualizar', [App\Http\Controllers\EstudioController::class, 'update'])->name('actualizar-estudio');
 Route::post('/estudio/borrar', [App\Http\Controllers\EstudioController::class, 'destroy'])->name('borrar-estudio');
+
+Route::get('/fundamentos', [App\Http\Controllers\FundamentoController::class, 'index'])->name('fundamentos');
+Route::post('/fundamento/agregar', [App\Http\Controllers\FundamentoController::class, 'store'])->name('nuevo-fundamento');
+Route::post('/fundamento/buscar', [App\Http\Controllers\FundamentoController::class, 'show'])->name('buscar-fundamento');
+Route::post('/fundamento/actualizar', [App\Http\Controllers\FundamentoController::class, 'update'])->name('actualizar-fundamento');
+Route::post('/fundamento/borrar', [App\Http\Controllers\FundamentoController::class, 'destroy'])->name('borrar-fundamento');
