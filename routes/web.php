@@ -66,3 +66,9 @@ Route::post('/fundamento/agregar', [App\Http\Controllers\FundamentoController::c
 Route::post('/fundamento/buscar', [App\Http\Controllers\FundamentoController::class, 'show'])->name('buscar-fundamento');
 Route::post('/fundamento/actualizar', [App\Http\Controllers\FundamentoController::class, 'update'])->name('actualizar-fundamento');
 Route::post('/fundamento/borrar', [App\Http\Controllers\FundamentoController::class, 'destroy'])->name('borrar-fundamento');
+
+Route::get('/carreras', [App\Http\Controllers\CarreraController::class, 'index'])->name('carreras');
+Route::post('/carrera/agregar', [App\Http\Controllers\CarreraController::class, 'store'])->name('nuevo-carrera');
+Route::post('/carrera/buscar', [App\Http\Controllers\CarreraController::class, 'show'])->name('buscar-carrera');
+Route::post('/carrera/actualizar', [App\Http\Controllers\CarreraController::class, 'update'])->name('actualizar-carrera');
+Route::post('/carrera/borrar', [App\Http\Controllers\CarreraController::class, 'destroy'])->name('borrar-carrera');

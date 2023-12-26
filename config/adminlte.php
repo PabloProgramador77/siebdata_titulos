@@ -435,7 +435,7 @@ return [
             ],
         ],
         'BootstrapSwitch' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

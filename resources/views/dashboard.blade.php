@@ -3,7 +3,6 @@
     <div class="container-fluid col-md-12 bg-white p-2 rounded">
         
         <p class="fs-3 fw-bold text-center bg-light border p-2 my-4 rounded shadow">Resumen Institucional</p>
-        <x-adminlte-input-switch id="modo" name="modo" data-on-text="Modo Certificado" data-off-text="Modo Título"></x-adminlte-input-switch>
         <div class="container-fluid row">
             
             <div class="col-md-4">
