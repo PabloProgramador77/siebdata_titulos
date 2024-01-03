@@ -72,3 +72,9 @@ Route::post('/carrera/agregar', [App\Http\Controllers\CarreraController::class, 
 Route::post('/carrera/buscar', [App\Http\Controllers\CarreraController::class, 'show'])->name('buscar-carrera');
 Route::post('/carrera/actualizar', [App\Http\Controllers\CarreraController::class, 'update'])->name('actualizar-carrera');
 Route::post('/carrera/borrar', [App\Http\Controllers\CarreraController::class, 'destroy'])->name('borrar-carrera');
+
+Route::get('/alumnos', [App\Http\Controllers\AlumnoController::class, 'index'])->name('alumnos');
+Route::post('/alumno/agregar', [App\Http\Controllers\AlumnoController::class, 'store'])->name('nuevo-alumno');
+Route::post('/alumno/buscar', [App\Http\Controllers\AlumnoController::class, 'show'])->name('buscar-alumno');
+Route::post('/alumno/actualizar', [App\Http\Controllers\AlumnoController::class, 'update'])->name('actualizar-alumno');
+Route::post('/alumno/borrar', [App\Http\Controllers\AlumnoController::class, 'destroy'])->name('borrar-alumno');

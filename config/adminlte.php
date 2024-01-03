@@ -301,12 +301,12 @@ return [
             'url' => '/carreras',
             'active' => ['carreras'],
         ],
-        /*[
+        [
             'text' => 'Alumnos',
             'url' => '/alumnos',
             'active' => ['usuarios'],
         ],
-        [
+        /*[
             'text' => 'Expediciones',
             'url' => '/expediciones',
             'active' => ['expediciones'],
