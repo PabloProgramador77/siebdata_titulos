@@ -48,14 +48,14 @@
                         <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>
                     @endforeach
                 </x-adminlte-select2>
-                <x-adminlte-input-date name="fechaInicio" id="fechaInicio" placeholder="Elige la fecha de inicio de la carrera">
+                <x-adminlte-input-date name="fechaInicio" id="fechaInicio" placeholder="Fecha de inicio de la carrera. Ejemplo: 26-03-1991, 1991-03-26, 03-26-1991, etc.">
                     <x-slot name="prependSlot">
                         <div class="input-group-text text-info">
                             *<i class="fas fa-calendar-alt"></i>
                         </div>
                     </x-slot>
                 </x-adminlte-input-date>
-                <x-adminlte-input-date name="fechaTermino" id="fechaTermino" placeholder="Elige la fecha de termino de la carrera">
+                <x-adminlte-input-date name="fechaTermino" id="fechaTermino" placeholder="Fecha de termino de la carrera. Ejemplo: 26-03-1991, 1991-03-26, 03-26-1991, etc.">
                     <x-slot name="prependSlot">
                         <div class="input-group-text text-info">
                             *<i class="fas fa-calendar-alt"></i>

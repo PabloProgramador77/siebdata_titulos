@@ -34,12 +34,12 @@ class Update extends FormRequest
             'id' => 'required|integer',
             'nombre' => 'required|string|min:2',
             'primerApellido' => 'required|string|min:2',
-            'segundoApellido' => 'string|min:2',
-            'curp' => 'required|min:18|max:18',
-            'email' => 'required|email|string',
+            'segundoApellido' => 'nullable|string|min:2',
+            'curp' => 'required|min:18|max:18|string',
+            'email' => 'required|email',
             'idCarrera' => 'required|integer',
-            'fechaInicio' => 'required|string',
-            'fechaTermino' => 'required|string',
+            'fechaInicio' => 'required|date',
+            'fechaTermino' => 'required|date',
 
         ];
     }
