@@ -306,12 +306,12 @@ return [
             'url' => '/alumnos',
             'active' => ['usuarios'],
         ],
-        /*[
+        [
             'text' => 'Expediciones',
             'url' => '/expediciones',
             'active' => ['expediciones'],
         ],
-        [
+        /*[
             'text' => 'Archivos XML',
             'url' => '/archivos',
             'active' => ['archivos'],

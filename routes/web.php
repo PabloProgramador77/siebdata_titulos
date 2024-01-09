@@ -78,3 +78,9 @@ Route::post('/alumno/agregar', [App\Http\Controllers\AlumnoController::class, 's
 Route::post('/alumno/buscar', [App\Http\Controllers\AlumnoController::class, 'show'])->name('buscar-alumno');
 Route::post('/alumno/actualizar', [App\Http\Controllers\AlumnoController::class, 'update'])->name('actualizar-alumno');
 Route::post('/alumno/borrar', [App\Http\Controllers\AlumnoController::class, 'destroy'])->name('borrar-alumno');
+
+Route::get('/expediciones', [App\Http\Controllers\ExpedicionController::class, 'index'])->name('expediciones');
+Route::post('/expedicion/agregar', [App\Http\Controllers\ExpedicionController::class, 'store'])->name('nuevo-expedicion');
+Route::post('/expedicion/buscar', [App\Http\Controllers\ExpedicionController::class, 'show'])->name('buscar-expedicion');
+Route::post('/expedicion/actualizar', [App\Http\Controllers\ExpedicionController::class, 'update'])->name('actualizar-expedicion');
+Route::post('/expedicion/borrar', [App\Http\Controllers\ExpedicionController::class, 'destroy'])->name('borrar-expedicion');
