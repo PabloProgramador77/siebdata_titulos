@@ -30,8 +30,8 @@
                             *<img src="{{ asset('icons/legal.png') }}" alt="Icono Cargo" width="20px" height="auto">
                         </div>
                     </x-slot>
-                    @foreach($fundamentos as $fundamentos)
-                        <option value="{{ $fundamento->id }}">{{ $alumno->nombre }}</option>
+                    @foreach($fundamentos as $fundamento)
+                        <option value="{{ $fundamento->id }}">{{ $fundamento->nombre }}</option>
                     @endforeach
                 </x-adminlte-select2>
                 <x-adminlte-select2 id="titulacionEditar" name="titulacionEditar" label-class="info">

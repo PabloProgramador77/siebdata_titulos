@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
 
                 }
 
-                $("#alumnoEditar").prepend( '<option value="'+respuesta.idAlumno+'">'+respuesta.nombre+' '+respuesta.primerApellido+' '+respuesta.segundoApellido+'</option>' );
+                $("#alumnoEditar").prepend( '<option value="'+respuesta.idAlumno+'">'+respuesta.nombreAlumno+' '+respuesta.primerApellido+' '+respuesta.segundoApellido+'</option>' );
                 $("#alumnoEditar").val( respuesta.idAlumno);
                 $("#alumnoEditar option[value='"+respuesta.idAlumno+"']:not(:first)").remove();
 
