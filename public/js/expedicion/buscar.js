@@ -86,4 +86,57 @@ jQuery(document).ready(function(){
 
     });
 
+    $(".archivo").on('click', function(e){
+
+        $("#crear").attr('disabled', true);
+        
+        e.preventDefault();
+
+        $.ajax({
+
+            type: 'POST',
+            url: '/expedicion/buscar',
+            data:{
+
+                'id' : $(this).attr('data-id')
+
+            },
+            dataType: 'json',
+            encode: true
+
+        }).done(function(respuesta){
+
+            if( respuesta.exito ){
+
+                $("#idExpedicion").val( respuesta.id );
+
+                $("#crear").attr('disabled', false);
+
+            }else{
+
+                Swal.fire({
+
+                    icon: 'error',
+                    title: respuesta.mensaje,
+                    allowOutsideClick: false,
+                    showConfirmButton: true
+
+                }).then((resultado)=>{
+
+                    if( resultado.isConfirmed ){
+
+                        window.location.href = '/expediciones';
+
+                    }
+
+                });
+
+                $("#crear").attr('disabled', true);
+
+            }
+
+        });
+
+    });
+
 });

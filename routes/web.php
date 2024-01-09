@@ -84,3 +84,9 @@ Route::post('/expedicion/agregar', [App\Http\Controllers\ExpedicionController::c
 Route::post('/expedicion/buscar', [App\Http\Controllers\ExpedicionController::class, 'show'])->name('buscar-expedicion');
 Route::post('/expedicion/actualizar', [App\Http\Controllers\ExpedicionController::class, 'update'])->name('actualizar-expedicion');
 Route::post('/expedicion/borrar', [App\Http\Controllers\ExpedicionController::class, 'destroy'])->name('borrar-expedicion');
+
+Route::get('/archivos', [App\Http\Controllers\ArchivoController::class, 'index'])->name('archivos');
+Route::post('/archivo/agregar', [App\Http\Controllers\ArchivoController::class, 'store'])->name('nuevo-archivo');
+Route::post('/archivo/buscar', [App\Http\Controllers\ArchivoController::class, 'show'])->name('buscar-archivo');
+Route::post('/archivo/actualizar', [App\Http\Controllers\ArchivoController::class, 'update'])->name('actualizar-archivo');
+Route::post('/archivo/borrar', [App\Http\Controllers\ArchivoController::class, 'destroy'])->name('borrar-archivo');

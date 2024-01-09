@@ -311,11 +311,11 @@ return [
             'url' => '/expediciones',
             'active' => ['expediciones'],
         ],
-        /*[
+        [
             'text' => 'Archivos XML',
             'url' => '/archivos',
             'active' => ['archivos'],
-        ],*/
+        ],
         
     ],
 
