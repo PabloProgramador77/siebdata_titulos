@@ -76,7 +76,7 @@ class ArchivoController extends Controller
                                         $xml->writeAttribute('abrTitulo', mb_strtoupper( $responsable->titulo, 'utf-8' ));
                                     }
 
-                                    $xml->writeAttribute('sello', '');
+                                    $xml->writeAttribute('sello', $this->sello( $responsable, $request ));
                                     $xml->writeAttribute('certificadoResponsable', $responsable->certificado->noCertificado);
                                     $xml->writeAttribute('noCertificadoResponsable', $responsable->certificado->serial);
                                 $xml->endElement();
@@ -302,5 +302,38 @@ class ArchivoController extends Controller
         }
 
         return response()->json($datos);
+    }
+
+    /**
+     * Creación del sello de firma
+     */
+    public function sello(Responsable $responsable, $request){
+        try {
+            
+            $cadena = '';
+
+            $cadena.='||1.0|'.$request->folioArchivo.'|'.mb_strtoupper($responsable->curp, 'utf-8').'|'.$responsable->cargo->id.'|'.mb_strtoupper($responsable->cargo->descripcion, 'utf-8').'|'.mb_strtoupper($responsable->titulo, 'utf-8').'|';
+
+            $ipes = User::find( auth()->user()->id );
+
+            $cadena.=$ipes->clave.'|'.mb_strtoupper($ipes->name, 'utf-8').'|';
+
+            $expedicion = Expedicion::find( $request->idExpedicion );
+
+            $cadena.=$expedicion->alumno->carrera->clave.'|'.mb_strtoupper($expedicion->alumno->carrera->nombre, 'utf-8').'|'.$expedicion->alumno->fechaInicio.'|'.$expedicion->alumno->fechaTermino.'|'.$expedicion->alumno->carrera->autoridad->idAutoridad.'|'.mb_strtoupper($expedicion->alumno->carrera->autoridad->nombre, 'utf-8').'|'.$expedicion->alumno->carrera->rvoe.'|';
+            $cadena.=mb_strtoupper($expedicion->alumno->curp, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->nombre, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->primerApellido, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->segundoApellido, 'utf-8').'|'.$expedicion->alumno->email.'|';
+            $cadena.=$expedicion->created_at->format('Y-m-d').'|'.$expedicion->titulacion->idTitulacion.'|'.mb_strtoupper($expedicion->titulacion->nombre, 'utf-8').'|'.$expedicion->fechaExamen.'|'.$expedicion->fechaExencion.'|'.$expedicion->servicioSocial.'|'.$expedicion->fundamento->idFundamento.'|'.mb_strtoupper($expedicion->fundamento->nombre, 'utf-8').'|'.$expedicion->entidad->idEntidad.'|'.mb_strtoupper($expedicion->entidad->nombre, 'utf-8').'|';
+            //$cadena.=mb_strtoupper($antecedente->nombreAntecedente, 'utf-8').'|'.$antecedente->idEstudio.'|'.mb_strtoupper($antecedente->estudio->nombreEstudio, 'utf-8').'|'.$antecedente->idEntidad.'|'.mb_strtoupper($antecedente->entidad->nombreEntidad, 'utf-8').'|'.$antecedente->fechaInicioAntecedente.'|'.$antecedente->fechaFinalAntecedente.'|'.$antecedente->cedulaAntecedente.'||'; 
+
+            openssl_sign( $cadena, $sello, $responsable->firma->firma );
+            $sello = base64_encode( $sello );
+
+            return $sello;
+
+        } catch (\Throwable $th) {
+            
+            return $sello;
+            
+        }
     }
 }
