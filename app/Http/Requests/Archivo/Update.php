@@ -33,6 +33,7 @@ class Update extends FormRequest
             
             'id' => 'required|integer',
             'folio' => 'required|string',
+            'idExpedicion' => 'required|integer',
             
         ];
     }

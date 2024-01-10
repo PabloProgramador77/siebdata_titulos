@@ -25,6 +25,7 @@ jQuery(document).ready(function(){
 
                 $("#folioEditar").val( respuesta.folio );
                 $("#id").val( respuesta.id );
+                $("#idExpedicion").val( respuesta.idExpedicion );
 
                 $("#actualizar").attr('disabled', false);
 

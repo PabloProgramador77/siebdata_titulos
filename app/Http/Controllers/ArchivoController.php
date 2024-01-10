@@ -208,6 +208,7 @@ class ArchivoController extends Controller
                 $datos['exito'] = true;
                 $datos['folio'] = $archivo->folio;
                 $datos['id'] = $archivo->id;
+                $datos['idExpedicion'] = $archivo->idExpedicion;
 
             }
         
@@ -248,6 +249,8 @@ class ArchivoController extends Controller
                         'folio' => $request->folio
     
                     ]);
+
+                $this->create($request);
     
                 $datos['exito'] = true;
 

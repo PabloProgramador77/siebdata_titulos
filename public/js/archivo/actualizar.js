@@ -30,6 +30,7 @@ jQuery(document).ready(function(){
                     data:{
 
                         'folio' : $("#folioEditar").val(),
+                        'idExpedicion' : $("#idExpedicion").val(),
                         'id' : $("#id").val()
 
                     },

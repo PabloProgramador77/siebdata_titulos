@@ -15,6 +15,7 @@
                 
             </div>
             <input type="hidden" name="id" id="id">
+            <input type="hidden" name="idExpedicion" id="idExpedicion">
         </form>
     </div>
     <x-slot name="footerSlot">
