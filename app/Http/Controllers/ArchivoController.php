@@ -135,6 +135,20 @@ class ArchivoController extends Controller
                             $xml->writeAttribute('entidadFederativa', mb_strtoupper( $expedicion->entidad->nombre, 'utf-8' ));
                         $xml->endElement();
 
+                        $xml->startElement('Antecedente');
+                            $xml->writeAttribute('institucionProcedencia', mb_strtoupper( $expedicion->alumno->antecedente->nombre, 'utf-8' ));
+                            $xml->writeAttribute('idTipoEstudioAntecedente', $expedicion->alumno->antecedente->estudio->idEstudio);
+                            $xml->writeAttribute('tipoEstudioAntecedente', mb_strtoupper( $expedicion->alumno->antecedente->estudio->nombre, 'utf-8' ));
+                            $xml->writeAttribute('idEntidadFederativa', $expedicion->alumno->antecedente->entidad->idEntidad);
+                            $xml->writeAttribute('entidadFederativa', mb_strtoupper( $expedicion->alumno->antecedente->entidad->nombre, 'utf-8' ));
+                            $xml->writeAttribute('fechaInicio', $expedicion->alumno->antecedente->fechaInicio);
+                            $xml->writeAttribute('fechaTerminacion', $expedicion->alumno->antecedente->fechaTermino);
+
+                            if( $expedicion->alumno->antecedente->cedula != '' ){
+                                $xml->writeAttribute('noCedula', $expedicion->alumno->antecedente->cedula);
+                            }
+                        $xml->endElement();
+
                     $xml->endElement();
                 $xml->fullEndElement();
 
@@ -323,7 +337,7 @@ class ArchivoController extends Controller
             $cadena.=$expedicion->alumno->carrera->clave.'|'.mb_strtoupper($expedicion->alumno->carrera->nombre, 'utf-8').'|'.$expedicion->alumno->fechaInicio.'|'.$expedicion->alumno->fechaTermino.'|'.$expedicion->alumno->carrera->autoridad->idAutoridad.'|'.mb_strtoupper($expedicion->alumno->carrera->autoridad->nombre, 'utf-8').'|'.$expedicion->alumno->carrera->rvoe.'|';
             $cadena.=mb_strtoupper($expedicion->alumno->curp, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->nombre, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->primerApellido, 'utf-8').'|'.mb_strtoupper($expedicion->alumno->segundoApellido, 'utf-8').'|'.$expedicion->alumno->email.'|';
             $cadena.=$expedicion->created_at->format('Y-m-d').'|'.$expedicion->titulacion->idTitulacion.'|'.mb_strtoupper($expedicion->titulacion->nombre, 'utf-8').'|'.$expedicion->fechaExamen.'|'.$expedicion->fechaExencion.'|'.$expedicion->servicioSocial.'|'.$expedicion->fundamento->idFundamento.'|'.mb_strtoupper($expedicion->fundamento->nombre, 'utf-8').'|'.$expedicion->entidad->idEntidad.'|'.mb_strtoupper($expedicion->entidad->nombre, 'utf-8').'|';
-            //$cadena.=mb_strtoupper($antecedente->nombreAntecedente, 'utf-8').'|'.$antecedente->idEstudio.'|'.mb_strtoupper($antecedente->estudio->nombreEstudio, 'utf-8').'|'.$antecedente->idEntidad.'|'.mb_strtoupper($antecedente->entidad->nombreEntidad, 'utf-8').'|'.$antecedente->fechaInicioAntecedente.'|'.$antecedente->fechaFinalAntecedente.'|'.$antecedente->cedulaAntecedente.'||'; 
+            $cadena.=mb_strtoupper($expedicion->alumno->antecedente->nombre, 'utf-8').'|'.$expedicion->alumno->antecedente->estudio->idEstudio.'|'.mb_strtoupper($expedicion->alumno->antecedente->estudio->nombre, 'utf-8').'|'.$expedicion->alumno->antecedente->entidad->idEntidad.'|'.mb_strtoupper($expedicion->alumno->antecedente->entidad->nombre, 'utf-8').'|'.$expedicion->alumno->antecedente->fechaInicio.'|'.$expedicion->alumno->antecedente->fechaTermino.'|'.$expedicion->alumno->antecedente->cedula.'||'; 
 
             openssl_sign( $cadena, $sello, $responsable->firma->firma );
             $sello = base64_encode( $sello );
