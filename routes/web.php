@@ -90,3 +90,9 @@ Route::post('/archivo/agregar', [App\Http\Controllers\ArchivoController::class, 
 Route::post('/archivo/buscar', [App\Http\Controllers\ArchivoController::class, 'show'])->name('buscar-archivo');
 Route::post('/archivo/actualizar', [App\Http\Controllers\ArchivoController::class, 'update'])->name('actualizar-archivo');
 Route::post('/archivo/borrar', [App\Http\Controllers\ArchivoController::class, 'destroy'])->name('borrar-archivo');
+
+Route::get('/antecedentes', [App\Http\Controllers\AntecedenteController::class, 'index'])->name('antecedentes');
+Route::post('/antecedente/agregar', [App\Http\Controllers\AntecedenteController::class, 'store'])->name('nuevo-antecedente');
+Route::post('/antecedente/buscar', [App\Http\Controllers\AntecedenteController::class, 'show'])->name('buscar-antecedente');
+Route::post('/antecedente/actualizar', [App\Http\Controllers\AntecedenteController::class, 'update'])->name('actualizar-antecedente');
+Route::post('/antecedente/borrar', [App\Http\Controllers\AntecedenteController::class, 'destroy'])->name('borrar-antecedente');

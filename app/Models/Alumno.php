@@ -29,4 +29,10 @@ class Alumno extends Model
         return $this->hasOne( Carrera::class, 'id', 'idCarrera' );
         
     }
+
+    public function antecedente(){
+
+        return $this->hasOne( Antecedente::class, 'idAlumno', 'id' );
+
+    }
 }

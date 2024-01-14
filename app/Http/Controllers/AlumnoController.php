@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Carrera;
+use App\Models\Estudio;
+use App\Models\Entidad;
 use Illuminate\Http\Request;
 use App\Http\Requests\Alumno\Create;
 use App\Http\Requests\Alumno\Read;
@@ -21,8 +23,10 @@ class AlumnoController extends Controller
 
             $alumnos = Alumno::all();
             $carreras = Carrera::all();
+            $estudios = Estudio::all();
+            $entidades = Entidad::all();
 
-            return view('alumno.index', compact('alumnos', 'carreras'));
+            return view('alumno.index', compact('alumnos', 'carreras', 'estudios', 'entidades'));
 
         }else{
 

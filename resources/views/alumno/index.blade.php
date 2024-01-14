@@ -34,6 +34,12 @@
                                 <td>
                                     <x-adminlte-button class="editar" id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $alumno->id }}"></x-adminlte-button>
                                     <x-adminlte-button class="eliminar" id="eliminar" label="Borrar" theme="danger" data-id="{{ $alumno->id }}"></x-adminlte-button>
+                                    
+                                    @if( $alumno->antecedente )
+                                        <x-adminlte-button class="editarAntecedente" id="antecedente" label="Antecedentes" theme="warning" data-id="{{ $alumno->antecedente->id }}" data-toggle="modal" data-target="#modalEditarAntecedente"></x-adminlte-button>
+                                    @else
+                                        <x-adminlte-button class="antecedente" id="antecedente" label="Antecedentes" theme="secondary" data-id="{{ $alumno->id }}" data-toggle="modal" data-target="#modalAntecedente"></x-adminlte-button>
+                                    @endif
                                 </td>
                             </tr>
                             
@@ -54,6 +60,8 @@
 
     @include('alumno.nuevo')
     @include('alumno.editar')
+    @include('alumno.antecedente')
+    @include('antecedente.editar')
 
     <script src="{{ asset('js/jquery-3.7.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/sweetAlert.js') }}" type="text/javascript"></script>
@@ -61,5 +69,8 @@
     <script src="{{ asset('js/alumno/buscar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/alumno/actualizar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/alumno/borrar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/antecedente/agregar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/antecedente/buscar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/antecedente/actualizar.js') }}" type="text/javascript"></script>
 
 @stop

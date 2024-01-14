@@ -65,4 +65,12 @@ jQuery(document).ready(function(){
 
     });
 
+    $(".antecedente").on('click', function(e){
+
+        e.preventDefault();
+
+        $("#idAlumno").val( $(this).attr('data-id') );
+
+    });
+
 });
