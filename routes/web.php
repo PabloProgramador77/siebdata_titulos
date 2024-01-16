@@ -90,6 +90,7 @@ Route::post('/archivo/agregar', [App\Http\Controllers\ArchivoController::class, 
 Route::post('/archivo/buscar', [App\Http\Controllers\ArchivoController::class, 'show'])->name('buscar-archivo');
 Route::post('/archivo/actualizar', [App\Http\Controllers\ArchivoController::class, 'update'])->name('actualizar-archivo');
 Route::post('/archivo/borrar', [App\Http\Controllers\ArchivoController::class, 'destroy'])->name('borrar-archivo');
+Route::get('/archivo/descarga/{idArchivo}', [App\Http\Controllers\ArchivoController::class, 'descarga'])->name('descargar-archivo');
 
 Route::get('/antecedentes', [App\Http\Controllers\AntecedenteController::class, 'index'])->name('antecedentes');
 Route::post('/antecedente/agregar', [App\Http\Controllers\AntecedenteController::class, 'store'])->name('nuevo-antecedente');

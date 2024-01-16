@@ -11,6 +11,7 @@ use App\Http\Requests\Archivo\Create;
 use App\Http\Requests\Archivo\Read;
 use App\Http\Requests\Archivo\Update;
 use App\Http\Requests\Archivo\Delete;
+use App\Http\Requests\Archivo\Download;
 use XMLWriter;
 
 class ArchivoController extends Controller
@@ -349,5 +350,36 @@ class ArchivoController extends Controller
             return $sello;
             
         }
+    }
+
+    /**
+     * Descarga de XML
+     */
+    public function descarga($idArchivo){
+        try {
+            
+            $archivo = Archivo::find( $idArchivo );
+
+            if( $archivo->id ){
+
+                if( file_exists( public_path( 'xml/'.$archivo->folio.'.xml' ) ) ){
+
+                    $headers = [
+
+                        'Content-Type' => 'application/xml',
+
+                    ];
+
+                    return response()->download( public_path( 'xml/'.$archivo->folio.'.xml', $archivo->folio.'.xml', $headers ) );
+
+                }
+
+            }
+
+        } catch (\Throwable $th) {
+            
+            echo $th->getMessage();
+        }
+
     }
 }

@@ -32,6 +32,7 @@
                                 <td>
                                     <x-adminlte-button class="editar" id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $archivo->id }}"></x-adminlte-button>
                                     <x-adminlte-button class="eliminar" id="eliminar" label="Borrar" theme="danger" data-id="{{ $archivo->id }}"></x-adminlte-button>
+                                    <a href="{{ url('/archivo/descarga') }}/{{ $archivo->id }}" class="btn btn-secondary" id="descarga">Descargar</a>
                                 </td>
                             </tr>
                         @endforeach
