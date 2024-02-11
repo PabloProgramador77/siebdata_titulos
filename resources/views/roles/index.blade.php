@@ -55,6 +55,7 @@
 
     @include('roles.nuevo')
     @include('roles.editar')
+    @include('roles.permisos')
 
     <script src="{{ asset('js/jquery-3.7.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/sweetAlert.js') }}" type="text/javascript"></script>
@@ -62,5 +63,6 @@
     <script src="{{ asset('js/roles/buscar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/roles/actualizar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/roles/borrar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/roles/permisos.js') }}" type="text/javascript"></script>
 
 @stop

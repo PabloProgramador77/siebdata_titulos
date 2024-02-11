@@ -55,4 +55,56 @@ jQuery(document).ready(function(){
 
     });
 
+    $(".permisos").on('click', function(e){
+
+        e.preventDefault();
+
+        $.ajax({
+
+            type: 'POST',
+            url: '/rol/buscar',
+            data:{
+
+                'id' : $(this).attr('data-id')
+
+            },
+            dataType: 'json',
+            encode: true
+
+        }).done(function(respuesta){
+
+            if( respuesta.exito ){
+
+                $("#nombreRol").val( respuesta.nombre );
+                $("#id").val( respuesta.id );
+
+                $("#actualizar").attr('disabled', false);
+
+            }else{
+
+                Swal.fire({
+
+                    icon: 'error',
+                    title: respuesta.mensaje,
+                    allowOutsideClick: false,
+                    showConfirmButton: true
+
+                }).then((resultado)=>{
+
+                    if( resultado.isConfirmed ){
+
+                        window.location.href = '/roles';
+
+                    }
+
+                });
+
+                $("#actualizar").attr('disabled', true);
+
+            }
+
+        });
+
+    });
+
 });
