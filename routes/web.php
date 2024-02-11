@@ -97,3 +97,9 @@ Route::post('/antecedente/agregar', [App\Http\Controllers\AntecedenteController:
 Route::post('/antecedente/buscar', [App\Http\Controllers\AntecedenteController::class, 'show'])->name('buscar-antecedente');
 Route::post('/antecedente/actualizar', [App\Http\Controllers\AntecedenteController::class, 'update'])->name('actualizar-antecedente');
 Route::post('/antecedente/borrar', [App\Http\Controllers\AntecedenteController::class, 'destroy'])->name('borrar-antecedente');
+
+Route:: get('/roles', [App\Http\Controllers\RoleController::class, 'index'])->name('roles');
+Route::post('/rol/agregar', [App\Http\Controllers\RoleController::class, 'store'])->name('nuevo-rol');
+Route::post('/rol/buscar', [App\Http\Controllers\RoleController::class, 'show'])->name('buscar-rol');
+Route::post('/rol/actualizar', [App\Http\Controllers\RoleController::class, 'update'])->name('actualizar-rol');
+Route::post('/rol/borrar', [App\Http\Controllers\RoleController::class, 'destroy'])->name('borrar-rol');

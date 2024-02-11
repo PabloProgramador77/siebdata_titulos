@@ -105,7 +105,7 @@ class ArchivoController extends Controller
                         $xml->endElement();
 
                         $xml->startElement('Profesionista');
-                            $xml->writeAttribute('correoElectronico', $expedicion->alumno->email);
+                            $xml->writeAttribute('curp', $expedicion->alumno->curp);
 
                             if( $expedicion->alumno->segundoApellido != '' ){
                                 $xml->writeAttribute('segundoApellido', mb_strtoupper( $expedicion->alumno->segundoApellido, 'utf-8' ));
@@ -113,7 +113,8 @@ class ArchivoController extends Controller
                             
                             $xml->writeAttribute('primerApellido', mb_strtoupper( $expedicion->alumno->primerApellido, 'utf-8' ));
                             $xml->writeAttribute('nombre', mb_strtoupper( $expedicion->alumno->nombre, 'utf-8' ));
-                            $xml->writeAttribute('curp', $expedicion->alumno->curp);
+                            $xml->writeAttribute('correoElectronico', $expedicion->alumno->email);
+                            
                         $xml->endElement();
 
                         $xml->startElement('Expedicion');
