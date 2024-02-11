@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        if( auth()->user()->id ){
+
+            return view('index');
+
+        }else{
+
+            return redirect('/');
+
+        }
     }
 }
