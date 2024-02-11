@@ -25,6 +25,9 @@
                 <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/roles') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <img src="{{ asset('icons/role.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Roles de Usuarios
                 </a>
+                <a class="nav-link" id="v-pills-profile-tab" href="{{ url('/permisos') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <img src="{{ asset('icons/role.png') }}" alt="" width="25px" height="auto" class="p-1 rounded"> Permisos de Usuarios
+                </a>
             </div>
         </div>
     </div>

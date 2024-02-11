@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use App\Http\Requests\Roles\Create;
-use App\Http\Requests\Roles\Read;
-use App\Http\Requests\Roles\Update;
-use App\Http\Requests\Roles\Delete;
+use Spatie\Permission\Models\Permission;
+use App\Http\Requests\Permisos\Create;
+use App\Http\Requests\Permisos\Read;
+use App\Http\Requests\Permisos\Update;
+use App\Http\Requests\Permisos\Delete;
 
-class RoleController extends Controller
+class PermisoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +18,13 @@ class RoleController extends Controller
     {
         if( auth()->user()->id ){
 
-            $roles = Role::all();
+            $permisos = Permission::all();
 
-            return view('roles.index', compact('roles'));
+            return view('permisos.index', compact('permisos'));
 
         }else{
 
-            return redirect('/');
+            return redirect('/permisos');
 
         }
     }
@@ -44,10 +44,10 @@ class RoleController extends Controller
     {
         try {
             
-            $rol = Role::create([
+            $permiso = Permission::create([
 
                 'name' => $request->nombre,
-                'guard' => 'web'
+                'guard' => 'web',
 
             ]);
 
@@ -70,13 +70,13 @@ class RoleController extends Controller
     {
         try {
             
-            $rol = Role::find( $request->id );
+            $permiso = Permission::find( $request->id );
 
-            if( $rol->id ){
+            if( $permiso->id ){
 
                 $datos['exito'] = true;
-                $datos['nombre'] = $rol->name;
-                $datos['id'] = $rol->id;
+                $datos['nombre'] = $permiso->name;
+                $datos['id'] = $permiso->id;
 
             }
 
@@ -105,11 +105,11 @@ class RoleController extends Controller
     {
         try {
             
-            $rol = Role::find( $request->id );
+            $permiso = Permission::find( $request->id );
 
-            if( $rol->id ){
+            if( $permiso->id ){
 
-                $rol = Role::where('id', '=', $request->id)
+                $permiso = Permission::where('id', '=', $request->id)
                     ->update([
 
                         'name' => $request->nombre
@@ -137,11 +137,11 @@ class RoleController extends Controller
     {
         try {
             
-            $rol = Role::find( $request->id );
+            $permiso = Permission::find( $request->id );
 
-            if( $rol->id ){
+            if( $permiso->id ){
 
-                $rol->delete();
+                $permiso->delete();
 
                 $datos['exito'] = true;
 
@@ -154,6 +154,6 @@ class RoleController extends Controller
 
         }
 
-        return response()->json( $datos );
+        return response()->json($datos);
     }
 }

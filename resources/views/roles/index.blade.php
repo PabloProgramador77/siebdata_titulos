@@ -34,6 +34,7 @@
                                 <td>
                                     <x-adminlte-button class="editar" id="editar" label="Editar" theme="info" data-toggle="modal" data-target="#modalEditar" data-id="{{ $rol->id }}"></x-adminlte-button>
                                     <x-adminlte-button class="eliminar" id="eliminar" label="Borrar" theme="danger" data-id="{{ $rol->id }}"></x-adminlte-button>
+                                    <x-adminlte-button class="permisos" id="permisos" label="Permisos" theme="secondary" data-toggle="modal" data-target="#modalPermisos" data-id="{{ $rol->id }}"></x-adminlte-button>
                                 </td>
                             </tr>
                             
